@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pradnya Garud | Developer Profile</title>
+  <meta name="description" content="Explore Pradnya Garud's web design, full stack development, software testing and Figma UI design services.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #7047ef;
+      --primary-dark: #4c29b6;
+      --text-dark: #191733;
+      --text-muted: #77768a;
+      --light-purple: #f2efff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 5px 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+     background-image: url('background.png');
+background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+    }
+
+    a {
+      overflow-wrap: anywhere;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 520px;
+      min-width: 0;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 25px 75px rgba(42, 28, 91, .16);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 85px rgba(42, 28, 91, .21);
+    }
+
+    .card-cover {
+      position: relative;
+      padding: 40px 20px 20px;
+      color: white;
+      background: linear-gradient(125deg, #15142f, #392080 60%, #7047f5);
+      overflow: hidden;
+    }
+
+    .card-cover::before,
+    .card-cover::after {
+      content: "";
+      position: absolute;
+      border: 30px solid rgba(255, 255, 255, .06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .card-cover::before {
+      width: 230px;
+      height: 230px;
+      right: -70px;
+      top: -125px;
+    }
+
+    .card-cover::after {
+      width: 150px;
+      height: 150px;
+      right: 70px;
+      bottom: -115px;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: #bba6ff;
+    }
+
+    .available {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      font-size: 10px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .available i {
+      color: #55efb1;
+      font-size: 8px;
+    }
+
+    .profile-content {
+      min-width: 0;
+      padding: 0 25px 25px;
+    }
+
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 25px;
+      border: 5px solid white;
+      margin-top: -60px;
+      position: relative;
+      background: #e8e1ff;
+      box-shadow: 0 8px 25px rgba(33, 22, 74, .15);
+    }
+
+    .hello {
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .profile-name {
+      font-size: clamp(27px, 5vw, 20px);
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -.8px;
+      overflow-wrap: anywhere;
+    }
+
+    .profile-role {
+      font-size: 14px;
+      color: #6b50d9;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .description {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 13px;
+      max-width: 440px;
+      margin: 10px auto 10px;
+    }
+
+    .skill {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 9px;
+      background: var(--light-purple);
+      color: #6340ca;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 3px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      color: #8a7da9;
+    }
+
+    .service-box {
+      height: 100%;
+      min-width: 0;
+      padding: 15px 7px;
+      border: 1px solid #eeebf8;
+      border-radius: 16px;
+      background: #fcfbff;
+      transition: transform .25s ease, background .25s ease,
+                  border-color .25s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      background: #f3efff;
+      border-color: #d7caff;
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      background: #ece5ff;
+      color: var(--primary);
+      font-size: 21px;
+    }
+
+    .service-title {
+      color: #26223e;
+      font-weight: 750;
+      font-size: 11px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-panel {
+      border-radius: 17px;
+      background: #f7f5ff;
+      padding: 17px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #47415f;
+      font-size: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .contact-link i {
+      flex-shrink: 0;
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    .contact-link:hover {
+      color: var(--primary);
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #6441d9;
+      background: #f0ebff;
+      font-size: 19px;
+      transition: .2s;
+    }
+
+    .social-link:hover {
+      color: white;
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .btn-contact {
+      background: linear-gradient(110deg, #7047ef, #9869ff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 17px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: .2s;
+    }
+
+    .btn-contact:hover {
+      color: white;
+      box-shadow: 0 8px 22px #7047ef45;
+      transform: translateY(-2px);
+    }
+
+    .card-footer-custom {
+      padding: 15px;
+      background: #fbfaff;
+      border-top: 1px solid #f0edf8;
+      text-align: center;
+      color: #89869d;
+      font-size: 10px;
+    }
+
+    /* Floating chatbot button */
+    .chatbot-toggle {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 1001;
+      width: 60px;
+      height: 60px;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      font-size: 26px;
+      background: linear-gradient(135deg, #7047ef, #a16bff);
+      box-shadow: 0 8px 28px rgba(90, 52, 200, .35);
+      transition: transform .25s ease;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.08);
+    }
+
+    .chatbot-toggle .close-icon {
+      display: none;
+    }
+
+    .chatbot-toggle.active .chat-icon {
+      display: none;
+    }
+
+    .chatbot-toggle.active .close-icon {
+      display: inline;
+    }
+
+    /* Chatbot window */
+    .chatbot-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 98px;
+      z-index: 1000;
+      width: min(360px, calc(100vw - 30px));
+      height: min(480px, calc(100dvh - 120px));
+      min-height: 300px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e9e1ff;
+      border-radius: 22px;
+      box-shadow: 0 18px 55px rgba(36, 22, 80, .22);
+    }
+
+    .chatbot-panel.open {
+      display: flex;
+      animation: chatOpen .2s ease-out;
+    }
+
+    @keyframes chatOpen {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chatbot-header {
+      flex-shrink: 0;
+      padding: 15px;
+      color: white;
+      background: linear-gradient(120deg, #211747, #7047ef);
+    }
+
+    .chatbot-header small {
+      color: #e5dcff;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 14px;
+      background: #fcfbff;
+      scroll-behavior: smooth;
+    }
+
+    .chat-message {
+      max-width: 88%;
+      padding: 10px 12px;
+      margin-bottom: 11px;
+      border-radius: 14px;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .bot-message {
+      color: #39324f;
+      background: #eee9ff;
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      color: white;
+      background: #7047ef;
+      border-bottom-right-radius: 4px;
+      margin-left: auto;
+    }
+
+    .chatbot-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 12px 10px;
+      background: #fcfbff;
+    }
+
+    .chatbot-suggestions button {
+      border: 1px solid #dcd0ff;
+      background: white;
+      color: #6540d2;
+      border-radius: 18px;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+
+    .chatbot-suggestions button:hover {
+      background: #eee8ff;
+    }
+
+    .chatbot-input-area {
+      flex-shrink: 0;
+      display: flex;
+      gap: 8px;
+      padding: 11px;
+      border-top: 1px solid #eeeaf8;
+      background: white;
+    }
+
+    .chatbot-input-area input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid #e4dff0;
+      border-radius: 11px;
+      padding: 10px;
+      outline: none;
+      font-size: 12px;
+    }
+
+    .chatbot-input-area input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px #7047ef18;
+    }
+
+    .chatbot-send {
+      width: 42px;
+      flex-shrink: 0;
+      border: 0;
+      border-radius: 11px;
+      color: white;
+      background: var(--primary);
+    }
+
+    .chatbot-send:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      body {
+        padding: 25px 14px;
+      }
+
+      .profile-card {
+        max-width: 500px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+      body {
+        display: block;
+        padding: 14px 10px;
+      }
+
+      .profile-card {
+        max-width: 100%;
+        border-radius: 21px;
+      }
+
+      .card-cover {
+        padding: 21px 15px 78px;
+      }
+
+      .profile-content {
+        padding: 0 14px 20px;
+      }
+
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+        margin-top: -54px;
+      }
+
+      .profile-role {
+        font-size: 12px;
+      }
+
+      .description {
+        font-size: 12px;
+      }
+
+      .service-box {
+        padding: 13px 5px;
+      }
+
+      .skill {
+        font-size: 10px;
+        padding: 7px 8px;
+      }
+
+      .contact-panel {
+        padding: 14px 11px;
+      }
+
+      .chatbot-toggle {
+        width: 54px;
+        height: 54px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 23px;
+      }
+
+      .chatbot-panel {
+        right: 10px;
+        bottom: 78px;
+        width: calc(100vw - 20px);
+        height: min(440px, calc(100dvh - 95px));
+        border-radius: 19px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .brand {
+        font-size: 15px;
+      }
+
+      .available {
+        font-size: 9px;
+        padding: 7px;
+      }
+
+      .profile-content {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PROFILE VISITING CARD -->
+  <main class="card profile-card">
+
+    <header class="card-cover">
+      <div class="d-flex justify-content-between align-items-center gap-2">
+        <div class="brand">PORT<span>FOLIO.</span></div>
+
+        <div class="available">
+          <i class="bi bi-circle-fill"></i>
+          Available for Projects
+        </div>
+      </div>
+    </header>
+
+    <div class="profile-content">
+
+      <!-- Profile information -->
+      <section class="text-center">
+        <img src="profile.jpeg"
+             alt="Pradnya Garud profile photo"
+             class="profile-photo">
+
+        <div class="mt-3">
+          <div class="hello">Hello, I'm</div>
+
+          <h1 class="profile-name mb-2">Pradnya Garud</h1>
+
+          <div class="profile-role">
+            Full Stack Developer &amp; UI Designer
+          </div>
+        </div>
+
+        <p class="description">
+          I create beautiful websites, develop reliable web
+          applications and test digital products to deliver
+          smooth, user-friendly experiences for businesses.
+        </p>
+
+        <div class="mb-2">
+          <span class="skill">Bootstrap 5</span>
+          <span class="skill">ASP.NET / PHP</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">SQL Server</span>
+          <span class="skill">Figma UI</span>
+          <span class="skill">Software Testing</span>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section aria-labelledby="servicesTitle">
+        <div id="servicesTitle" class="section-label text-center mb-3">
+          WHAT I CAN DO FOR YOU
+        </div>
+
+        <div class="row g-3 mb-2">
+
+          <div class="col-6 col-md-3">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <div class="service-title">Website Design</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="service-title">Full Stack Development</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <i class="bi bi-check2-circle"></i>
+              </div>
+              <div class="service-title">Testing &amp; QA</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="service-box text-center">
+              <div class="service-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <div class="service-title">Figma UI Design</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact details -->
+      <section class="contact-panel" aria-labelledby="contactTitle">
+
+        <div id="contactTitle" class="section-label mb-3">
+          LET'S CONNECT
+        </div>
+
+        <div class="d-flex gap-3">
+
+          <a class="contact-link"
+             href="mailto:pradnyagarud25@gmail.com">
+            <i class="bi bi-envelope-fill"></i>
+            <span>pradnyagarud25@gmail.com</span>
+          </a>
+
+         </div>
+
+        <div class="d-flex flex-wrap gap-2 mt-4">
+
+          <a href="mailto:pradnyagarud25@gmail.com"
+             class="btn-contact flex-grow-1">
+            <i class="bi bi-send-fill me-2"></i>
+            Hire Me
+          </a>
+
+          <a href="https://github.com/pradnyagarud25/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-link"
+             aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/pradnya-garud-b31532254/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-link"
+             aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="card-footer-custom">
+      Designed with passion · Available for web projects
+    </footer>
+
+  </main>
+
+  <!-- CHATBOT FLOATING BUTTON -->
+  <button type="button"
+          class="chatbot-toggle"
+          id="chatbotToggle"
+          aria-label="Open chat assistant"
+          aria-controls="chatbotPanel"
+          aria-expanded="false">
+    <i class="bi bi-chat-dots-fill chat-icon"></i>
+    <i class="bi bi-x-lg close-icon"></i>
+  </button>
+
+  <!-- CHATBOT WINDOW -->
+  <section class="chatbot-panel"
+           id="chatbotPanel"
+           role="dialog"
+           aria-label="Pradnya's portfolio assistant"
+           aria-hidden="true">
+
+    <header class="chatbot-header d-flex align-items-center gap-3">
+
+      <div class="rounded-circle bg-white text-primary
+                  d-flex align-items-center justify-content-center flex-shrink-0"
+           style="width:42px;height:42px;">
+        <i class="bi bi-robot fs-4"></i>
+      </div>
+
+      <div class="flex-grow-1">
+        <div class="fw-bold">Pradnya's Assistant</div>
+        <small>
+          <i class="bi bi-circle-fill me-1"
+             style="font-size:8px;color:#55efb1;"></i>
+          Portfolio Help
+        </small>
+      </div>
+
+      <button type="button"
+              id="chatbotClose"
+              class="btn btn-sm text-white"
+              aria-label="Close chatbot">
+        <i class="bi bi-x-lg fs-5"></i>
+      </button>
+
+    </header>
+
+    <div class="chatbot-messages d-flex flex-column"
+         id="chatbotMessages"
+         aria-live="polite"
+         aria-relevant="additions">
+
+      <div class="chat-message bot-message">
+        Hi! 👋 Welcome to Pradnya's profile.
+
+        I can help you explore my services, skills and contact details.
+
+        How can I help you today?
+      </div>
+
+    </div>
+
+    <div class="chatbot-suggestions">
+      <button type="button" data-question="services">
+        My Services
+      </button>
+
+      <button type="button" data-question="skills">
+        My Skills
+      </button>
+
+      <button type="button" data-question="projects">
+        My Projects
+      </button>
+
+      <button type="button" data-question="contact">
+        Contact Me
+      </button>
+    </div>
+
+    <form class="chatbot-input-area" id="chatbotForm">
+
+      <input type="text"
+             id="chatbotInput"
+             placeholder="Ask me something..."
+             aria-label="Type your message"
+             autocomplete="off"
+             maxlength="300"
+             required>
+
+      <button class="chatbot-send"
+              type="submit"
+              aria-label="Send message">
+        <i class="bi bi-send-fill"></i>
+      </button>
+
+    </form>
+
+  </section>
+
+  <script>
+    // Chatbot elements
+    const toggle = document.getElementById("chatbotToggle");
+    const panel = document.getElementById("chatbotPanel");
+    const closeBtn = document.getElementById("chatbotClose");
+    const form = document.getElementById("chatbotForm");
+    const input = document.getElementById("chatbotInput");
+    const messages = document.getElementById("chatbotMessages");
+
+    // Open chatbot
+    function openChat() {
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      toggle.classList.add("active");
+      toggle.setAttribute("aria-expanded", "true");
+      input.focus();
+    }
+
+    // Close chatbot
+    function closeChat() {
+      panel.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
+      toggle.classList.remove("active");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    }
+
+    toggle.addEventListener("click", function () {
+      if (panel.classList.contains("open")) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    });
+
+    closeBtn.addEventListener("click", closeChat);
+
+    // Close with Escape key
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && panel.classList.contains("open")) {
+        closeChat();
+      }
+    });
+
+    // Add a message safely as plain text
+    function addMessage(text, type) {
+      const message = document.createElement("div");
+      message.className = "chat-message " + type + "-message";
+      message.textContent = text;
+
+      messages.appendChild(message);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    // Frontend chatbot responses
+    function getReply(question) {
+      const q = question.toLowerCase();
+
+      if (/\b(hi|hello|hey|namaste)\b/.test(q)) {
+        return "Hi! 👋 Thanks for visiting my profile. Ask me about my services, skills, projects or contact details.";
+      }
+
+      if (/service|website design|web design/.test(q)) {
+        return "My services include:\n\n• Responsive Website Design\n• Full Stack Development\n• Software Testing & QA\n• Figma UI Design\n\nContact me to discuss your website requirements!";
+      }
+
+      if (/skill|technology|tech stack|bootstrap|php|asp.net|sql|javascript/.test(q)) {
+        return "My technical skills include HTML, CSS, Bootstrap 5, JavaScript, PHP, ASP.NET MVC, SQL Server, API integration, Figma and software testing.";
+      }
+
+      if (/test|qa|bug|test case/.test(q)) {
+        return "I work on manual testing, test case preparation, bug reporting, UI testing, form validation and application quality checks.";
+      }
+
+      if (/figma|ui|ux|design/.test(q)) {
+        return "I create clean UI layouts and prototypes in Figma, focusing on responsive layouts and user-friendly experiences.";
+      }
+
+      if (/project|portfolio|work sample|website example/.test(q)) {
+        return "I work on web applications, responsive interfaces, dashboards and UI designs. Add your actual project URLs to this profile so clients can explore your work.";
+      }
+
+      if (/contact|email|hire|phone|call/.test(q)) {
+        return "You can contact me using the email and phone details on this card. Click the Hire Me button to start an email.";
+      }
+
+      if (/price|cost|budget|charge/.test(q)) {
+        return "Project cost depends on the required features, design and timeline. Please contact me with your requirements to discuss the project.";
+      }
+
+      if (/experience|about|who are you/.test(q)) {
+        return "I'm Pradnya Garud, a developer working across web development, UI design and software testing. Contact me to discuss your project requirements.";
+      }
+
+      return "Thanks for your message! I can help with Website Design, Full Stack Development, Software Testing, Figma UI Design, Projects and Contact Details.";
+    }
+
+    // Send a chat message
+    function sendMessage(text) {
+      const question = text.trim();
+
+      if (!question) return;
+
+      addMessage(question, "user");
+
+      const reply = getReply(question);
+      addMessage(reply, "bot");
+
+      input.value = "";
+      input.focus();
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      sendMessage(input.value);
+    });
+
+    // Quick question buttons
+    document.querySelectorAll("[data-question]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        sendMessage(button.dataset.question);
+      });
+    });
+  </script>
+
+</body>
+</html>
